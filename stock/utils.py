@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import matplotlib
-matplotlib.use('TkAgg')
 import base64
 from io import BytesIO
 
