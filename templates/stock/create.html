@@ -1,0 +1,30 @@
+{% extends 'stock/base.html' %} {% block content %}
+<form method="POST">
+  {% csrf_token %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Trade Code</th>
+        <th scope="col">High</th>
+        <th scope="col">Low</th>
+        <th scope="col">Open</th>
+        <th scope="col">Close</th>
+        <th scope="col">Volume</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" placeholder="date" name="date" /></td>
+        <td><input type="text" placeholder="tradecode" name="trade_code" /></td>
+        <td><input type="text" placeholder="high" name="high" /></td>
+        <td><input type="text" placeholder="low" name="low" /></td>
+        <td><input type="text" placeholder="open" name="open" /></td>
+        <td><input type="text" placeholder="close" name="close" /></td>
+        <td><input type="text" placeholder="volume" name="volume" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="submit" value="Insert Info" />
+</form>
+{% endblock %}

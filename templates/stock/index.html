@@ -1,0 +1,45 @@
+{% extends 'stock/base.html' %} {% block content %}
+<h3>Stock Information Visualization</h3>
+{% if chart %}
+<img src="data:image/png;base64, {{chart|safe}}" />
+{% endif %} {% if chart2 %}
+<img src="data:image/png;base64, {{chart2|safe}}" />
+{% endif %}
+<h3>Stock Information Table</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Date</th>
+      <th scope="col">Trade Code</th>
+      <th scope="col">High</th>
+      <th scope="col">Low</th>
+      <th scope="col">Open</th>
+      <th scope="col">Close</th>
+      <th scope="col">Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in stockInfo %} {% if forloop.counter <= 500 %}
+    <tr>
+      <td>{{i.id}}</td>
+      <td>{{i.date}}</td>
+      <td>{{i.trade_code}}</td>
+      <td>{{i.high}}</td>
+      <td>{{i.low}}</td>
+      <td>{{i.open}}</td>
+      <td>{{i.close}}</td>
+      <td>{{i.volume}}</td>
+      <td><a href="/edit/{{i.id}}">Edit</a></td>
+      <td>
+        <a
+          href="/delete/{{i.id}}"
+          onclick="return confirm('Are you sure you want to delete?')"
+          >Delete</a
+        >
+      </td>
+    </tr>
+    {% endif %} {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
