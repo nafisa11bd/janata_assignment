@@ -24,7 +24,7 @@ def index(request):
              #x1.append(i.date)
              y.append(float(i.close))
              y1.append(int(i.volume.replace(',', '')))
-             print(int(i.volume.replace(',', '')))
+             #print(int(i.volume.replace(',', '')))
              
     
     chart=get_plot(x,y)
